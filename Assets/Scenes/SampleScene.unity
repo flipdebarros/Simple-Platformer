@@ -149,7 +149,7 @@ Transform:
   m_GameObject: {fileID: 470875352}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.4810493, y: 0.091863856, z: 0}
+  m_LocalPosition: {x: -6.58, y: -3.314, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -171,19 +171,38 @@ MonoBehaviour:
   animator: {fileID: 974763361}
   movementSettings:
     <Rigidbody2D>k__BackingField: {fileID: 470875361}
-    <SpriteRenderer>k__BackingField: {fileID: 974763360}
-    <MovementAccelerationTime>k__BackingField: 0.4
-    <MovementDecelerationTime>k__BackingField: 0.3
-    <MovementTurnAccelerationTime>k__BackingField: 0.1
-    <MovementSpeed>k__BackingField: 7
+    <AccelerationTime>k__BackingField: 0.3
+    <DecelerationTime>k__BackingField: 0.2
+    <TurnAccelerationTime>k__BackingField: 0.05
+    <Speed>k__BackingField: 5
     <MovingThreshold>k__BackingField: 0.1
+  sensesSettings:
+    <Rigidbody2D>k__BackingField: {fileID: 470875361}
+    <SpriteRenderer>k__BackingField: {fileID: 974763360}
+    <FloorDetectionRect>k__BackingField:
+      serializedVersion: 2
+      x: -0.234375
+      y: -0.4375
+      width: 0.46875
+      height: 0.03125
+    <WallDetectionRect>k__BackingField:
+      serializedVersion: 2
+      x: 0.234375
+      y: -0.15625
+      width: 0.0625
+      height: 0.3125
     <FacingRight>k__BackingField: 1
-  rect:
-    serializedVersion: 2
-    x: 0.7431381
-    y: -0.24574803
-    width: 0.59231377
-    height: 0.840264
+    <GroundLayer>k__BackingField:
+      serializedVersion: 2
+      m_Bits: 128
+    <WallLayer>k__BackingField:
+      serializedVersion: 2
+      m_Bits: 128
+  jumpSettings:
+    <Rigidbody2D>k__BackingField: {fileID: 470875361}
+    <Height>k__BackingField: 2.5
+    <Reach>k__BackingField: 3
+    <TerminalVelocity>k__BackingField: 12
 --- !u!66 &470875358
 CompositeCollider2D:
   m_ObjectHideFlags: 0
@@ -505,7 +524,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 10
+  m_GravityScale: 15
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -693,7 +712,7 @@ GameObject:
   - component: {fileID: 604172480}
   - component: {fileID: 604172482}
   - component: {fileID: 604172481}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}

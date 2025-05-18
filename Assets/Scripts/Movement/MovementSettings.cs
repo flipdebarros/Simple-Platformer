@@ -1,30 +1,25 @@
 using System;
 using UnityEngine;
 
-[Serializable] [Drawable]
+[Serializable]
 public class MovementSettings
 {
 	[field: SerializeField] 
 	public Rigidbody2D Rigidbody2D { get; private set; }
 
 	[field: SerializeField] 
-	public SpriteRenderer SpriteRenderer { get; private set; }
-
-	[field: SerializeField] 
-	public float MovementAccelerationTime { get; private set; }
+	public float AccelerationTime { get; private set; }
 	
 	[field: SerializeField]
-	public float MovementDecelerationTime { get; private set; }
+	public float DecelerationTime { get; private set; }
 
 	[field: SerializeField] 
-	public float MovementTurnAccelerationTime { get; private set; }
+	public float TurnAccelerationTime { get; private set; }
 	
 	[field: SerializeField]
-	public float MovementSpeed { get; private set; }
+	public float Speed { get; private set; }
 	
 	[field: SerializeField]
 	public float MovingThreshold { get; private set; }
-
-	[field: SerializeField] 
-	public bool FacingRight { get; set; }
+	
 }

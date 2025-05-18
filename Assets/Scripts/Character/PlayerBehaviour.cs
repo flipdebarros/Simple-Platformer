@@ -4,11 +4,15 @@ public class PlayerBehaviour : MonoBehaviour
 {
 	[SerializeField] Animator animator;
 	[SerializeField] MovementSettings movementSettings;
+	[SerializeField] SensesSettings sensesSettings;
+	[SerializeField] JumpSettings jumpSettings;
 
 	ICharacterStateMachine stateMachine;
 	ICharacterBrain characterBrain;
 	IMovementManager movementManager;
 	IAnimationManager animationManager;
+	ICharacterSensesManager sensesManager;
+	IJumpManager jumpManager;
 
 	IState groundState;
 
@@ -17,11 +21,16 @@ public class PlayerBehaviour : MonoBehaviour
 		characterBrain = new CharacterInputBrain();
 		characterBrain.Initialize();
 
-		movementManager = new MovementManager(movementSettings);
+		sensesManager = new CharacterSensesManager(sensesSettings);
+		
+		movementManager = new MovementManager(movementSettings, sensesManager);
+
+		jumpManager = new JumpManager(jumpSettings, movementManager, sensesManager);
+		jumpManager.Initialize();
 
 		animationManager = new AnimationManager(animator, this);
 		
-		groundState = new GroundState(characterBrain, movementManager, animationManager);
+		groundState = new GroundState(characterBrain, movementManager, animationManager, sensesManager, jumpManager);
 		
 		stateMachine = new CharacterStateMachine();
 		stateMachine.Initialize(groundState);

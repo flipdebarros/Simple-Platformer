@@ -38,13 +38,14 @@ public class DrawRectTool : EditorTool, IDrawSelectedHandles
 		);
 		displayRect.center = newPos;
 
+		
 		Vector2[] corners = GetCorners(displayRect);
 		for (int i = 0; i < corners.Length; i++)
 		{
 			EditorGUI.BeginChangeCheck();
 			corners[i] = Handles.FreeMoveHandle(
 				corners[i],
-				0.05f,
+				HandleUtility.GetHandleSize(corners[i]) * 0.1f,
 				Vector3.one * 0.01f,
 				Handles.CircleHandleCap
 			);

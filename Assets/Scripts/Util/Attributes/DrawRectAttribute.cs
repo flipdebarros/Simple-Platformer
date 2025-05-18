@@ -1,7 +1,7 @@
 using System;
 
 [System.AttributeUsage(
-	System.AttributeTargets.Field | AttributeTargets.Property,
+	System.AttributeTargets.Field,
 	AllowMultiple = true
 )]
 public class DrawRectAttribute : Attribute
